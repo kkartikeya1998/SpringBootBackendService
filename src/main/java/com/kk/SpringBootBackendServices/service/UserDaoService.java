@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserDaoService {
@@ -18,11 +17,8 @@ public class UserDaoService {
         return userRepository.findAll();
     }
 
-    public Optional<User> findUserById(Long id){
-        if(userRepository.findById(id) == null)
-            return null;
-        else
-            return userRepository.findById(id);
+    public User findUserById(Long id) {
+        return (userRepository.findById(id).orElse(null));
     }
 
     public User createUser(User user){
@@ -37,8 +33,8 @@ public class UserDaoService {
         return user;
     }
 
-    public void deleteUser(User user){
-        userRepository.delete(user);
+    public void deleteUser(Long id){
+        userRepository.delete(userRepository.findById(id).orElse(null));
     }
 
 }

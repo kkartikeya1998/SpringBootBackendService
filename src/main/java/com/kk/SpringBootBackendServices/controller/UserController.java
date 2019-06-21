@@ -20,7 +20,7 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
-    public Optional<User> getUserById(@PathVariable("id") Long id) {
+    public User getUserById(@PathVariable("id") Long id) {
         return userDaoService.findUserById(id);
     }
 
@@ -36,7 +36,7 @@ public class UserController {
 
     @DeleteMapping("/user/{id}")
     public void deleteUserById(@PathVariable("id") Long id) {
-        userDaoService.deleteUser();
+        userDaoService.deleteUser(id);
     }
 
 
