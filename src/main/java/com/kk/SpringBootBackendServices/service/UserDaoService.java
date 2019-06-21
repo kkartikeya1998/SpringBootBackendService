@@ -28,7 +28,10 @@ public class UserDaoService {
     }
 
     public User updateUser(User user){
+        if(userRepository.findById(user.getId()) == null)
+            return null;
         userRepository.save(user);
+        return user;
     }
 
     public void deleteUser(User user){
