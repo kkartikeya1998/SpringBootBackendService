@@ -19,7 +19,10 @@ public class UserDaoService {
     }
 
     public Optional<User> findUserById(Long id){
-        return userRepository.findById(id);
+        if(userRepository.findById(id) == null)
+            return null;
+        else
+            return userRepository.findById(id);
     }
 
     public User createUser(User user){
