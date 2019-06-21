@@ -18,8 +18,8 @@ public class UserDaoService {
         return userRepository.findAll();
     }
 
-    public Optional<User> findUserById(Long id){
-        return userRepository.findById(id);
+    public User findUserById(Long id){
+        return userRepository.findById(id).orElse(null);
     }
 
     public User createUser(User user){

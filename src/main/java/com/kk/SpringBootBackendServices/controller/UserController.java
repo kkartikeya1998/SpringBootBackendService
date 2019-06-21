@@ -21,7 +21,7 @@ public class UserController {
 
     @GetMapping("/user/{id}")
     public User getUserById(@PathVariable("id") Long id){
-        return userDaoService.findUserById(id).orElse(null);
+        return userDaoService.findUserById(id);
     }
 
     @PostMapping("/user")
@@ -36,7 +36,7 @@ public class UserController {
 
     @DeleteMapping("/user/{id}")
     public void deleteUserById(@PathVariable("id") Long id){
-        userDaoService.deleteUser(userDaoService.findUserById(id).orElse(null));
+        userDaoService.deleteUser(userDaoService.findUserById(id));
     }
 
 }
