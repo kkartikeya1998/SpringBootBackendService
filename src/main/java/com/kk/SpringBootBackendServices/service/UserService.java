@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Service
 @Slf4j              //Simple Logging Framework
-public class UseService {
+public class UserService {
     @Autowired
     UserRepository userRepository;
 
